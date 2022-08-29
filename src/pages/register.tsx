@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form"
 import { CreateUserInput } from "../schema/user.schema"
 import { trpc } from "../utils/trpc"
 
-
 function RegisterPage() {
 
   const { handleSubmit, register } = useForm<CreateUserInput>()
@@ -29,7 +28,7 @@ function RegisterPage() {
       <input type="email" placeholder="your email" {...register('email')} />
       <br />
       <input type="text" placeholder="your name" {...register('name')} />
-      <input type="submit">Register</input>
+      <input type="submit" />
     </form>
 
     <Link href="/login">Login</Link>

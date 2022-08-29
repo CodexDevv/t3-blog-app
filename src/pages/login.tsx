@@ -25,9 +25,9 @@ function LoginPage() {
   return <>
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* {error && error.message} */}
-      <h1>Register</h1>
+      <h1>Login</h1>
       <input type="email" placeholder="your email" {...register('email')} />
-      <input type="submit">Login</input>
+      <input type="submit" />
     </form>
 
     <Link href="/register">Register</Link>
