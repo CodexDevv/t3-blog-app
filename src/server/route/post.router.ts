@@ -10,7 +10,7 @@ export const postRouter = createRouter()
     input: createPostSchema,
     resolve: async ({ ctx, input }) => {
       if (!ctx.user)
-        return new TRPCError({
+        new TRPCError({
           code: "FORBIDDEN",
           message: "Can not create a post while logged out",
         });
@@ -20,7 +20,7 @@ export const postRouter = createRouter()
           ...input,
           user: {
             connect: {
-              id: ctx.user.id,
+              id: ctx.user?.id,
             },
           },
         },
