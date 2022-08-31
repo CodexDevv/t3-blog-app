@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LoginForm from '../components/LoginForm'
 import { useUserContext } from '../context/user.context'
-import styles from '../styles/Home.module.css'
 import { trpc } from '../utils/trpc'
 
 const Home: NextPage = () => {
@@ -13,8 +12,10 @@ const Home: NextPage = () => {
 
   if (!user) return <LoginForm />
 
-  return <div>
-    <Link href="/posts/new">Create Post</Link>
+  return <div className='p-10'>
+    <Link href="/posts/new" className='justify-center items-center'>
+      <button className='btn btn-primary'>Create Post</button>
+    </Link>
   </div>
 }
 

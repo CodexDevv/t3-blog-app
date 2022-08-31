@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
@@ -41,17 +42,17 @@ function LoginForm() {
 
   if (hash) return <VerifyToken hash={hash} />
 
-  return <>
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {error && error.message}
-      {success && <p>Check you mail</p>}
-      <h1>Login</h1>
-      <input type="email" placeholder="your email" {...register('email')} />
-      <button>Login</button>
+  return <div className="flex flex-col space-y-2 items-center max-w-sm mx-auto pt-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="form-control w-full mx-auto space-y-4">
+      {error && <div className="alert shadow-sm">{error.message}</div>}
+      {success && <p>Check your email</p>}
+      <h1 className="text-3xl">Login</h1>
+      <input type="email" placeholder="your email" className="input input-bordered input-primary w-full" {...register('email')} />
+      <button type="submit" className="btn btn-primary">Login</button>
     </form>
+    <Link href="/register">Don't have an account? Register</Link>
 
-    <Link href="/register">Register</Link>
-  </>
+  </div>
 }
 
 export default LoginForm
